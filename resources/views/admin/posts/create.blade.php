@@ -2,12 +2,11 @@
 
 @section('content')
 
-<h1>Author n°{{ $post->id }} Post Edit</h1>
+<h1>New Author Post Create</h1>
 
-<form action="{{ route('admin.posts.update', $post) }}" method="POST">
+<form action="{{ route('admin.posts.store', $post) }}" method="POST">
 
     @csrf
-    @method('PUT')
 
     <div class="col-3">
       <label for="name" class="form-label">Name</label>
@@ -36,7 +35,7 @@
              placeholder="Email...">
     </div>
 
-    <button type="submit" class="btn btn-success">EDIT</button>
+    <button type="submit" class="btn btn-success">CREATE</button>
     <a class="btn btn-primary" href="{{ route('admin.posts.index') }}">BACK</a>
 
   </form>

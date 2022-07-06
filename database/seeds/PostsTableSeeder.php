@@ -17,9 +17,9 @@ class PostsTableSeeder extends Seeder
         for($i = 0; $i < 50; $i++){
             $new_post = new Post();
             $new_post->name = $faker->lastName();
-            $new_post->location = $faker->city();
+            $new_post->location = $faker->country();
             $new_post->slug = Str::slug($faker->name, '-');
-            $new_post->time_post = $faker->time();
+            $new_post->email = $faker->email();
             $new_post->save();
         }
     }

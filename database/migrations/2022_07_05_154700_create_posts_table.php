@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('name', 50);
             $table->string('location', 50);
             $table->string('slug', 50)->unique();
-            $table->time('time_post', 0);
+            $table->string('email', 50);
             $table->timestamps();
         });
     }

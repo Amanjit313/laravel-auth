@@ -10,7 +10,7 @@
             <th class="col-1">ID</th>
             <th class="col-3">NAME</th>
             <th class="col-3">LOCATION</th>
-            <th class="col-3">TIME POST</th>
+            <th class="col-3">EMAIL</th>
             <th class="col-3"></th>
         </tr>
     </thead>
@@ -27,7 +27,7 @@
                 <p>{{ $post->location }}</p>
             </td>
             <td>
-                <p>{{ $post->time_post }}</p>
+                <p>{{ $post->email }}</p>
             </td>
             <td>
                 <a class="btn btn-success" href="{{ route('admin.posts.show', $post) }}">SHOW</a>
