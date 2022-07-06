@@ -36,6 +36,7 @@
              placeholder="Email...">
     </div>
 
+    <br>
     <button type="submit" class="btn btn-success">EDIT</button>
     <a class="btn btn-primary" href="{{ route('admin.posts.index') }}">BACK</a>
 
