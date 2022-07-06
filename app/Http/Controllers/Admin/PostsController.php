@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
@@ -60,7 +61,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -70,9 +72,17 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+
+        $data = $request->all();
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $post->update($data);
+
+        return redirect()->route('admin.posts.edit', $post);
+
     }
 
     /**
