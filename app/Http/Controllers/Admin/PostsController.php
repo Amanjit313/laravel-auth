@@ -39,6 +39,9 @@ class PostsController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate($this->rulesValidate(), $this->messagesValidate());
+
+
         $data = $request->all();
 
         $new_post = new Post();
@@ -86,6 +89,9 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
 
+        $request->validate($this->rulesValidate(), $this->messagesValidate());
+
+
         $data = $request->all();
 
         $data['slug'] = Str::slug($data['name'], '-');
@@ -106,5 +112,27 @@ class PostsController extends Controller
     {
         $post->delete();
         return redirect()->route('admin.posts.index');
+    }
+
+    private function rulesValidate(){
+        return[
+            'name' => 'required|max:50|min:3',
+            'location' => 'required|max:50|min:2',
+            'email' => 'required|max:50|min:5',
+        ];
+    }
+
+    private function messagesValidate(){
+        return[
+            'name.required' => 'Questo campo è obbligatorio',
+            'name.max' => 'Questo campo non può superare i :max caratteri',
+            'name.min' => 'Questo campo non può essere inferiore ai :min caratteri',
+            'location.required' => 'Questo campo è obbligatorio',
+            'location.max' => 'Questo campo non può superare i :max caratteri',
+            'location.min' => 'Questo campo non può essere inferiore ai :min caratteri',
+            'email.required' => 'Questo campo è obbligatorio',
+            'email.max' => 'Questo campo non può superare i :max caratteri',
+            'email.min' => 'Questo campo non può essere inferiore ai :min caratteri',
+        ];
     }
 }
