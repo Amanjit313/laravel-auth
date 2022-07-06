@@ -35,6 +35,15 @@
             <td>
                 <a class="btn btn-success" href="{{ route('admin.posts.show', $post) }}">SHOW</a>
                 <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post) }}">EDIT</a>
+
+                <form action="{{ route('admin.posts.destroy', $post) }}"
+                      method="POST"
+                      onsubmit="return confirm('Vuoi eliminare il post di {{ $post->name }}?')">
+                      @csrf
+                      @method('DELETE')
+                    <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
+
             </td>
         </tr>
         @endforeach
