@@ -49,7 +49,7 @@ class PostsController extends Controller
 
         $new_post->save();
 
-        return redirect()->route('admin.posts.create', $new_post);
+        return redirect()->route('admin.posts.index', $new_post);
     }
 
     /**
@@ -92,7 +92,7 @@ class PostsController extends Controller
 
         $post->update($data);
 
-        return redirect()->route('admin.posts.edit', $post);
+        return redirect()->route('admin.posts.index', $post);
 
     }
 
