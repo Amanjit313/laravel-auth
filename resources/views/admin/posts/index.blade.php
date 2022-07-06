@@ -10,6 +10,7 @@
             <th class="col-1">ID</th>
             <th class="col-3">NAME</th>
             <th class="col-3">TIME POST</th>
+            <th class="col-3"></th>
         </tr>
     </thead>
     <tbody>
@@ -24,11 +25,16 @@
             <td>
                 <p>{{ $post->time_post }}</p>
             </td>
+            <td>
+                <a class="btn btn-success" href="{{ route('admin.posts.show', $post) }}">SHOW</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
+
 </table>
 
+<hr>
 <div class="d-flex justify-content-center">
     {{ $posts->links() }}
 </div>
